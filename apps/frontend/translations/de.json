@@ -415,7 +415,7 @@
     "running": "Läuft",
     "minimizeToFloatingPreview": "Auf schwebende Vorschau minimieren",
     "close": "Schließen",
-    "noActionsYet": "Kortix Computer",
+    "noActionsYet": "WorkersCraft AI Computer",
     "workerActionsDescription": "Wird gestartet",
     "emptyActionsDescription": "Worker-Aktionen werden hier angezeigt",
     "toolIsRunning": "Tool läuft",
@@ -830,7 +830,7 @@
     "title": "Kortix: Dein autonomer KI-Worker",
     "subtitle": "Gebaut für komplexe Aufgaben, entwickelt für alles. Der ultimative KI-Assistent, der alles bewältigt—von einfachen Anfragen bis hin zu mega-komplexen Projekten.",
     "tryItOut": "Ausprobieren",
-    "kortixComputer": "Kortix Computer",
+    "kortixComputer": "WorkersCraft AI Computer",
     "running": "Läuft",
     "workers": {
       "images": {

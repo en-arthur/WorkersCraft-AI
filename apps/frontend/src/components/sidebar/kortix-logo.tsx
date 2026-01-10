@@ -4,13 +4,13 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-interface KortixLogoProps {
+interface WorkersCraftLogoProps {
   size?: number;
   variant?: 'symbol' | 'logomark';
   className?: string;
 }
 
-export function KortixLogo({ size = 24, variant = 'symbol', className }: KortixLogoProps) {
+export function KortixLogo({ size = 24, variant = 'symbol', className }: WorkersCraftLogoProps) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -28,8 +28,8 @@ export function KortixLogo({ size = 24, variant = 'symbol', className }: KortixL
   if (variant === 'logomark') {
     return (
       <img
-        src="/logomark-white.svg"
-        alt="Kortix"
+        src="/workerscraft-logomark.svg"
+        alt="WorkersCraft AI"
         className={cn(`${shouldInvert ? '' : 'invert'} flex-shrink-0`, className)}
         style={{ height: `${size}px`, width: 'auto' }}
       />
@@ -39,10 +39,13 @@ export function KortixLogo({ size = 24, variant = 'symbol', className }: KortixL
   // Default symbol variant behavior
   return (
     <img
-      src="/kortix-symbol.svg"
-      alt="Kortix"
+      src="/workerscraft-symbol.svg"
+      alt="WorkersCraft AI"
       className={cn(`${shouldInvert ? 'invert' : ''} flex-shrink-0`, className)}
       style={{ width: `${size}px`, height: `${size}px` }}
     />
   );
 }
+
+// Export with both names for backward compatibility
+export { KortixLogo as WorkersCraftLogo };

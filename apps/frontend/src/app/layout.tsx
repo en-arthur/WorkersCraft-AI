@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  authors: [{ name: 'Kortix Team', url: 'https://www.kortix.com' }],
-  creator: 'Kortix Team',
-  publisher: 'Kortix Team',
+  authors: [{ name: 'WorkersCraft AI Team', url: 'https://www.workerscraft.ai' }],
+  creator: 'WorkersCraft AI Team',
+  publisher: 'WorkersCraft AI Team',
   applicationName: siteMetadata.name,
   robots: {
     index: true,
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteMetadata.title,
     description: siteMetadata.description,
-    creator: '@kortix',
-    site: '@kortix',
+    creator: '@workerscraft_ai',
+    site: '@workerscraft_ai',
     images: ['/banner.png'],
   },
   icons: {
@@ -164,21 +164,21 @@ export default function RootLayout({
         />
         
         {/* Static SEO meta tags - rendered in initial HTML */}
-        <title>Kortix: Your Autonomous AI Worker</title>
-        <meta name="description" content="Built for complex tasks, designed for everything. The ultimate AI assistant that handles it all—from simple requests to mega-complex projects." />
-        <meta name="keywords" content="Kortix, AI Worker, Agentic AI, Autonomous AI Worker, AI Automation, AI Workflow Automation, AI Assistant, Task Automation" />
-        <meta property="og:title" content="Kortix: Your Autonomous AI Worker" />
-        <meta property="og:description" content="Built for complex tasks, designed for everything. The ultimate AI assistant that handles it all—from simple requests to mega-complex projects." />
-        <meta property="og:image" content="https://kortix.com/banner.png" />
-        <meta property="og:url" content="https://kortix.com" />
+        <title>WorkersCraft AI: Premium Agentic Workforce Platform</title>
+        <meta name="description" content="WorkersCraft AI is a premium, enterprise-grade 'Agentic Workforce' platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish." />
+        <meta name="keywords" content="WorkersCraft AI, Agentic Workforce, Digital Workers, AI Automation, Enterprise AI, Autonomous AI Workers, AI Workflow Automation, Complex Task Automation, AI Operations" />
+        <meta property="og:title" content="WorkersCraft AI: Premium Agentic Workforce Platform" />
+        <meta property="og:description" content="WorkersCraft AI is a premium, enterprise-grade 'Agentic Workforce' platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish." />
+        <meta property="og:image" content="https://www.workerscraft.ai/banner.png" />
+        <meta property="og:url" content="https://www.workerscraft.ai" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Kortix" />
+        <meta property="og:site_name" content="WorkersCraft AI" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Kortix: Your Autonomous AI Worker" />
-        <meta name="twitter:description" content="Built for complex tasks, designed for everything. The ultimate AI assistant that handles it all—from simple requests to mega-complex projects." />
-        <meta name="twitter:image" content="https://kortix.com/banner.png" />
-        <meta name="twitter:site" content="@kortix" />
-        <link rel="canonical" href="https://kortix.com" />
+        <meta name="twitter:title" content="WorkersCraft AI: Premium Agentic Workforce Platform" />
+        <meta name="twitter:description" content="WorkersCraft AI is a premium, enterprise-grade 'Agentic Workforce' platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish." />
+        <meta name="twitter:image" content="https://www.workerscraft.ai/banner.png" />
+        <meta name="twitter:site" content="@workerscraft_ai" />
+        <link rel="canonical" href="https://www.workerscraft.ai" />
         
         {/* iOS Smart App Banner - shows native install banner in Safari */}
         {!featureFlags.disableMobileAdvertising ? (
@@ -194,7 +194,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: siteMetadata.name,
-              alternateName: ['Kortix', 'Kortix AI', 'Kortix: Your Autonomous AI Worker'],
+              alternateName: ['WorkersCraft AI', 'WorkersCraft', 'WorkersCraft AI: Premium Agentic Workforce Platform'],
               url: siteMetadata.url,
               logo: `${siteMetadata.url}/favicon.png`,
               description: siteMetadata.description,

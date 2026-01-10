@@ -2,12 +2,14 @@
  * Site metadata configuration - SIMPLE AND WORKING
  */
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.kortix.com';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.workerscraft.ai';
 
 export const siteMetadata = {
-  name: 'Kortix',
-  title: 'Kortix: Your Autonomous AI Worker',
-  description: 'Built for complex tasks, designed for everything. The ultimate AI assistant that handles it all—from simple requests to mega-complex projects.',
+  name: 'WorkersCraft AI',
+  title: 'WorkersCraft AI: Premium Agentic Workforce Platform',
+  description: 'WorkersCraft AI is a premium, enterprise-grade "Agentic Workforce" platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish.',
+  keywords: ['WorkersCraft AI', 'Agentic Workforce', 'Digital Workers', 'AI automation', 'enterprise AI', 'autonomous AI', 'AI workers', 'workflow automation'],
+  url: 'https://www.workerscraft.ai',
   url: baseUrl,
-  keywords: 'Kortix, AI Worker, Agentic AI, Autonomous AI Worker, AI Automation, AI Workflow Automation, AI Assistant, Task Automation',
+  keywords: 'WorkersCraft AI, Agentic Workforce, Digital Workers, AI Automation, Enterprise AI, Autonomous AI Workers, AI Workflow Automation, Complex Task Automation, AI Operations',
 };

@@ -11,22 +11,22 @@ export type ModelProvider =
   | 'moonshotai'
   | 'bedrock'
   | 'openrouter'
-  | 'kortix';
+  | 'workerscraft';
 
 /**
- * Check if a model ID corresponds to a Kortix mode (Basic, Advanced, or Test)
+ * Check if a model ID corresponds to a WorkersCraft AI mode (Basic, Advanced, or Test)
  */
-export function isKortixMode(modelId: string): boolean {
-  // New Kortix registry IDs
-  if (modelId === 'kortix/basic' || modelId === 'kortix/power' || modelId === 'kortix/test' ||
-      modelId === 'kortix-basic' || modelId === 'kortix-power' || modelId === 'kortix-test') {
+export function isWorkersCraftMode(modelId: string): boolean {
+  // New WorkersCraft AI registry IDs
+  if (modelId === 'workerscraft/basic' || modelId === 'workerscraft/power' || modelId === 'workerscraft/test' ||
+      modelId === 'workerscraft-basic' || modelId === 'workerscraft-power' || modelId === 'workerscraft-test') {
     return true;
   }
-  // Legacy: Kortix Basic (Haiku 4.5)
+  // Legacy: WorkersCraft Basic (Haiku 4.5)
   if (modelId.includes('claude-haiku-4-5') || modelId.includes('heol2zyy5v48')) {
     return true;
   }
-  // Legacy: Kortix Advanced Mode (Sonnet 4.5)
+  // Legacy: WorkersCraft Advanced Mode (Sonnet 4.5)
   if (modelId.includes('claude-sonnet-4-5') || modelId.includes('few7z4l830xh')) {
     return true;
   }
@@ -37,9 +37,9 @@ export function isKortixMode(modelId: string): boolean {
  * Get the provider from a model ID
  */
 export function getModelProvider(modelId: string): ModelProvider {
-  // Check for Kortix modes first
-  if (isKortixMode(modelId)) {
-    return 'kortix';
+  // Check for WorkersCraft AI modes first
+  if (isWorkersCraftMode(modelId)) {
+    return 'workerscraft';
   }
   if (modelId.includes('anthropic') || modelId.includes('claude')) {
     return 'anthropic';
@@ -67,7 +67,7 @@ export function getModelProvider(modelId: string): ModelProvider {
   const parts = modelId.split('/');
   if (parts.length > 1) {
     const provider = parts[0].toLowerCase();
-    if (['openai', 'anthropic', 'google', 'xai', 'moonshotai', 'bedrock', 'openrouter'].includes(provider)) {
+    if (['openai', 'anthropic', 'google', 'xai', 'moonshotai', 'bedrock', 'openrouter', 'workerscraft'].includes(provider)) {
       return provider as ModelProvider;
     }
   }
@@ -94,7 +94,7 @@ export function ModelProviderIcon({
   const provider = getModelProvider(modelId);
 
   const iconMap: Record<ModelProvider, string> = {
-    kortix: '/kortix-symbol.svg', // Kortix modes use the Kortix symbol
+    workerscraft: '/workerscraft-symbol.svg', // WorkersCraft AI modes use the WorkersCraft symbol
     anthropic: '/images/models/Anthropic.svg',
     openai: '/images/models/OAI.svg',
     google: '/images/models/Gemini.svg',
@@ -104,8 +104,8 @@ export function ModelProviderIcon({
     openrouter: '/images/models/OAI.svg', // Default to OpenAI icon for OpenRouter
   };
 
-  // Special handling for Kortix symbol - needs different invert behavior
-  const isKortix = provider === 'kortix';
+  // Special handling for WorkersCraft AI symbol - needs different invert behavior
+  const isWorkersCraft = provider === 'workerscraft';
 
   const iconSrc = iconMap[provider];
 
@@ -143,9 +143,9 @@ export function ModelProviderIcon({
         height={size * 0.6}
         className={cn(
           "object-contain",
-          // Kortix symbol: invert in dark mode (black symbol → white)
+          // WorkersCraft AI symbol: invert in dark mode (black symbol → white)
           // Other icons: invert in dark mode (black icons → white)
-          isKortix ? "dark:invert" : "dark:brightness-0 dark:invert"
+          isWorkersCraft ? "dark:invert" : "dark:brightness-0 dark:invert"
         )}
         style={{ width: size * 0.6, height: size * 0.6 }}
       />
@@ -160,7 +160,7 @@ export function getModelProviderName(modelId: string): string {
   const provider = getModelProvider(modelId);
 
   const nameMap: Record<ModelProvider, string> = {
-    kortix: 'Kortix',
+    workerscraft: 'WorkersCraft AI',
     anthropic: 'Anthropic',
     openai: 'OpenAI',
     google: 'Google',

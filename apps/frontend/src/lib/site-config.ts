@@ -14,25 +14,25 @@ export const siteConfig = {
   },
   hero: {
     description:
-      'Kortix – open-source platform to build, manage and train your AI Workforce.',
+      'WorkersCraft AI is a premium, enterprise-grade "Agentic Workforce" platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish.',
   },
   cloudPricingItems: pricingTiers,
   footerLinks: [
     {
-      title: 'Kortix',
+      title: 'WorkersCraft AI',
       links: [
         { id: 1, title: 'About', url: '/about' },
         { id: 2, title: 'Careers', url: '/careers' },
         { id: 3, title: 'Support', url: '/support' },
-        { id: 4, title: 'Contact', url: 'mailto:hey@kortix.com' },
+        { id: 4, title: 'Contact', url: 'mailto:hey@workerscraft.ai' },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { id: 5, title: 'Documentation', url: 'https://github.com/kortix-ai/suna' },
+        { id: 5, title: 'Documentation', url: 'https://github.com/en-arthur/WorkersCraft-AI' },
         { id: 6, title: 'Discord', url: 'https://discord.com/invite/RvFhXUdZ9H' },
-        { id: 7, title: 'GitHub', url: 'https://github.com/kortix-ai/suna' },
+        { id: 7, title: 'GitHub', url: 'https://github.com/en-arthur/WorkersCraft-AI' },
       ],
     },
     {
@@ -40,7 +40,7 @@ export const siteConfig = {
       links: [
         { id: 8, title: 'Privacy Policy', url: '/legal?tab=privacy' },
         { id: 9, title: 'Terms of Service', url: '/legal?tab=terms' },
-        { id: 10, title: 'License', url: 'https://github.com/kortix-ai/suna/blob/main/LICENSE' },
+        { id: 10, title: 'License', url: 'https://github.com/en-arthur/WorkersCraft-AI/blob/main/LICENSE' },
       ],
     },
   ],

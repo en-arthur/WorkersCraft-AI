@@ -4,30 +4,31 @@ import { ArrowRight, Github } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Suna is now Kortix | Kortix Suna - Open Source AI Worker',
-  description: 'Suna has rebranded to Kortix. Kortix (formerly Suna) is the same powerful open source AI assistant and generalist AI worker you know and love, now with a new name and bigger vision.',
+  title: 'Suna is now WorkersCraft AI | WorkersCraft AI - Premium Agentic Workforce Platform',
+  description: 'Suna has rebranded to WorkersCraft AI. WorkersCraft AI (formerly Suna) is a premium, enterprise-grade "Agentic Workforce" platform that moves beyond simple chatbots to provide autonomous Digital Workers.',
   keywords: [
     'Suna',
-    'Kortix Suna',
+    'WorkersCraft AI',
     'Suna AI',
     'Suna assistant',
     'Suna.so',
     'where is Suna',
-    'Kortix',
+    'WorkersCraft AI',
     'Suna rebrand',
-    'Suna is now Kortix',
+    'Suna is now WorkersCraft AI',
     'AI assistant',
-    'open source AI',
-    'generalist AI worker',
-    'AI worker',
+    'Agentic Workforce',
+    'Digital Workers',
+    'AI automation',
+    'enterprise AI',
     'autonomous AI',
   ],
   openGraph: {
-    title: 'Suna is now Kortix',
-    description: 'Kortix (formerly Suna) - Same powerful open source AI worker, new name.',
+    title: 'Suna is now WorkersCraft AI',
+    description: 'WorkersCraft AI (formerly Suna) - Premium Agentic Workforce Platform with autonomous Digital Workers.',
     type: 'website',
-    url: 'https://www.kortix.com/suna',
-    siteName: 'Kortix',
+    url: 'https://www.workerscraft.ai/suna',
+    siteName: 'WorkersCraft AI',
     images: [
       {
         url: '/banner.png',
@@ -39,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Suna is now Kortix',
-    description: 'Kortix (formerly Suna) - Same powerful open source AI worker, new name.',
+    title: 'Suna is now WorkersCraft AI',
+    description: 'WorkersCraft AI (formerly Suna) - Premium Agentic Workforce Platform with autonomous Digital Workers.',
     images: ['/banner.png'],
   },
   alternates: {
