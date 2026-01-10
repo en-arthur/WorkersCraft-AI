@@ -230,8 +230,8 @@ export function ShowCaseSection() {
                                         {/* Computer header */}
                                         <div className="bg-background text-foreground px-3 sm:px-4 flex items-center justify-between flex-shrink-0 h-[50px] sm:h-[65px]">
                                             <div className="flex items-center gap-2">
-                                                <KortixLogo size={14} className="sm:hidden opacity-50" />
-                                                <KortixLogo size={14} className="hidden sm:block opacity-50" />
+                                                <WorkersCraftLogo size={14} className="sm:hidden opacity-50" />
+                                                <WorkersCraftLogo size={14} className="hidden sm:block opacity-50" />
                                                 <span className="text-base sm:text-xl font-medium">
                                                     {t('workersComputer')}
                                                 </span>
