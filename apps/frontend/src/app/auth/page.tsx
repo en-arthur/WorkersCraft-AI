@@ -544,7 +544,6 @@ function LoginContent() {
             </Suspense>
           </div>
 
-          <ExampleShowcase />
         </div>
       </div>
     </div>

@@ -28,14 +28,6 @@ export const siteConfig = {
       ],
     },
     {
-      title: 'Resources',
-      links: [
-        { id: 5, title: 'Documentation', url: 'https://github.com/en-arthur/WorkersCraft-AI' },
-        { id: 6, title: 'Discord', url: 'https://discord.com/invite/RvFhXUdZ9H' },
-        { id: 7, title: 'GitHub', url: 'https://github.com/en-arthur/WorkersCraft-AI' },
-      ],
-    },
-    {
       title: 'Legal',
       links: [
         { id: 8, title: 'Privacy Policy', url: '/legal?tab=privacy' },
