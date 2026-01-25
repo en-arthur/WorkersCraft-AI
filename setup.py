@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+# ============================================================================
+# NOTICE: This setup script is legacy and contains backend configuration steps.
+# The backend has been moved to a separate repository.
+#
+# This script is kept for historical purposes and frontend-only setup.
+# For full stack setup, please refer to the backend repository separately.
+# ============================================================================
+
 import os
 import sys
 import time
@@ -34,17 +42,20 @@ def print_banner():
     print(
         f"""
 {Colors.BLUE}{Colors.BOLD}
-   ███████╗██╗   ██╗███╗   ██╗ █████╗ 
+   ███████╗██╗   ██╗███╗   ██╗ █████╗
    ██╔════╝██║   ██║████╗  ██║██╔══██╗
    ███████╗██║   ██║██╔██╗ ██║███████║
    ╚════██║██║   ██║██║╚██╗██║██╔══██║
    ███████║╚██████╔╝██║ ╚████║██║  ██║
    ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝
-                                      
+
    Installation Wizard
 {Colors.ENDC}
 """
     )
+    print(f"{Colors.YELLOW}{Colors.BOLD}⚠️  NOTICE: Backend Moved to Separate Repository{Colors.ENDC}")
+    print(f"{Colors.YELLOW}This setup script contains legacy backend configuration steps.{Colors.ENDC}")
+    print(f"{Colors.YELLOW}For backend setup, please refer to the backend repository separately.{Colors.ENDC}\n")
 
 
 def print_step(step_num, total_steps, step_name):

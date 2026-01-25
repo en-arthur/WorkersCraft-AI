@@ -51,7 +51,8 @@ npm run start
 
 ## Development Notes
 
-- The frontend connects to the backend API at `http://localhost:8000/v1`
+- The frontend connects to the backend API via the `NEXT_PUBLIC_BACKEND_URL` environment variable
+- The backend is now in a separate repository - ensure it's running and accessible
 - Supabase is used for authentication and database operations
 - The app runs on `http://localhost:3000` by default
 - Environment variables are automatically configured by the setup wizard

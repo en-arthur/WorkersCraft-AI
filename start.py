@@ -84,45 +84,20 @@ def check_docker_compose_up(compose_cmd):
     return len(result.stdout.strip()) > 0
 
 def print_manual_instructions(compose_cmd_str):
-    """Prints instructions for manually starting Suna services."""
-    progress = load_progress()
-    supabase_setup_method = progress.get("data", {}).get("supabase_setup_method")
-    
+    """Prints instructions for manually starting Kortix services."""
     print(f"\n{Colors.BLUE}{Colors.BOLD}🚀 Manual Startup Instructions{Colors.ENDC}\n")
+    print("To start Kortix, you need to run these commands in separate terminals:\n")
 
-    print("To start Suna, you need to run these commands in separate terminals:\n")
-
-    step_num = 1
-    
-    # Show Supabase start command for local setup
-    if supabase_setup_method == "local":
-        print(f"{Colors.BOLD}{step_num}. Start Local Supabase (in backend directory):{Colors.ENDC}")
-        print(f"{Colors.CYAN}   cd backend && npx supabase start{Colors.ENDC}\n")
-        step_num += 1
-
-    print(f"{Colors.BOLD}{step_num}. Start Infrastructure (in project root):{Colors.ENDC}")
+    print(f"{Colors.BOLD}1. Start Infrastructure (in project root):{Colors.ENDC}")
     print(f"{Colors.CYAN}   {compose_cmd_str} up redis -d{Colors.ENDC}\n")
-    step_num += 1
 
-    print(f"{Colors.BOLD}{step_num}. Start Frontend (in a new terminal):{Colors.ENDC}")
+    print(f"{Colors.BOLD}2. Start Frontend (in a new terminal):{Colors.ENDC}")
     print(f"{Colors.CYAN}   cd apps/frontend && pnpm run dev{Colors.ENDC}\n")
-    step_num += 1
 
-    print(f"{Colors.BOLD}{step_num}. Start Backend (in a new terminal):{Colors.ENDC}")
-    print(f"{Colors.CYAN}   cd backend && uv run api.py{Colors.ENDC}\n")
-    step_num += 1
+    print(f"{Colors.YELLOW}Note:{Colors.ENDC} The backend is now in a separate repository.")
+    print(f"{Colors.YELLOW}      Make sure you have the backend API running and configured.{Colors.ENDC}\n")
 
-    print(f"{Colors.BOLD}{step_num}. Start Background Worker (in a new terminal):{Colors.ENDC}")
-    print(
-        f"{Colors.CYAN}   cd backend && uv run python run_worker.py --concurrency 8{Colors.ENDC}\n"
-    )
-
-    # Show stop commands for local Supabase
-    if supabase_setup_method == "local":
-        print(f"{Colors.BOLD}To stop Local Supabase:{Colors.ENDC}")
-        print(f"{Colors.CYAN}   cd backend && npx supabase stop{Colors.ENDC}\n")
-
-    print("Once all services are running, access Suna at: http://localhost:3000\n")
+    print("Once all services are running, access Kortix at: http://localhost:3000\n")
 
     print(
         f"{Colors.YELLOW}💡 Tip:{Colors.ENDC} You can use '{Colors.CYAN}./start.py{Colors.ENDC}' to start/stop the infrastructure services."
@@ -134,7 +109,7 @@ def main():
 
     if "--help" in sys.argv:
         print("Usage: ./start.py [OPTION]")
-        print("Manage Suna services based on your setup method")
+        print("Manage Kortix services based on your setup method")
         print("\nOptions:")
         print("  -f\tForce start containers without confirmation")
         print("  --help\tShow this help message")
@@ -204,7 +179,7 @@ def main():
 
     else:  # docker setup
         print(f"{Colors.BLUE}{Colors.BOLD}Docker Setup Detected{Colors.ENDC}")
-        print("Managing all Suna services with Docker Compose...\n")
+        print("Managing Kortix services with Docker Compose...\n")
 
         force = "-f" in sys.argv
         if force:
@@ -223,10 +198,10 @@ def main():
 
         if is_up:
             action = "stop"
-            msg = "🛑 Stop all Suna services? [y/N] "
+            msg = "🛑 Stop all Kortix services? [y/N] "
         else:
             action = "start"
-            msg = "⚡ Start all Suna services? [Y/n] "
+            msg = "⚡ Start all Kortix services? [Y/n] "
 
         if not force:
             response = input(msg).strip().lower()
@@ -241,11 +216,13 @@ def main():
 
         if action == "stop":
             subprocess.run(compose_cmd + ["down"], shell=IS_WINDOWS)
-            print(f"\n{Colors.GREEN}✅ All Suna services stopped.{Colors.ENDC}")
+            print(f"\n{Colors.GREEN}✅ All Kortix services stopped.{Colors.ENDC}")
         else:
             subprocess.run(compose_cmd + ["up", "-d"], shell=IS_WINDOWS)
-            print(f"\n{Colors.GREEN}✅ All Suna services started.{Colors.ENDC}")
-            print(f"{Colors.CYAN}🌐 Access Suna at: http://localhost:3000{Colors.ENDC}")
+            print(f"\n{Colors.GREEN}✅ All Kortix services started.{Colors.ENDC}")
+            print(f"{Colors.CYAN}🌐 Access Kortix at: http://localhost:3000{Colors.ENDC}")
+            print(f"{Colors.YELLOW}Note:{Colors.ENDC} The backend is now in a separate repository.")
+            print(f"{Colors.YELLOW}      Make sure you have the backend API running and configured.{Colors.ENDC}")
 
 
 if __name__ == "__main__":

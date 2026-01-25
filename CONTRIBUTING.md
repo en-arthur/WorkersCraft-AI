@@ -26,5 +26,6 @@ This will guide you through configuring all required services and dependencies.
 
 For detailed setup instructions, please refer to:
 
-- [Backend Development Setup](backend/README.md) - Backend-specific development
 - [Frontend Development Setup](apps/frontend/README.md) - Frontend-specific development
+
+**Note:** The backend has been moved to a separate repository. Please refer to the backend repository for backend-specific development setup.
