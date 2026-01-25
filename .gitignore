@@ -200,13 +200,6 @@ redis_data
 
 .setup_env.json
 
-backend/.test_token_compression.py
-backend/test_token_compression_data.py
-
-# Debug streams output
-backend/debug_streams/
-backend/core/agentpress/debug_streams/
-
 dump.rdb
 
 # CodeWebChat state and logs (auto-added)
