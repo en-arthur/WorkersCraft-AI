@@ -26,11 +26,17 @@ export default function GoogleSignIn({ returnUrl, referralCode }: GoogleSignInPr
         document.cookie = `pending-referral-code=${referralCode.trim().toUpperCase()}; path=/; max-age=600; SameSite=Lax`;
       }
       
+      // Prefer configured public URL (deployed) over current window origin.
+      // If `NEXT_PUBLIC_URL` is set to the production domain (e.g. https://workerscraft.com),
+      // use it so OAuth redirect targets the production callback instead of localhost.
+      const siteOrigin = (process.env.NEXT_PUBLIC_URL && process.env.NEXT_PUBLIC_URL !== '')
+        ? process.env.NEXT_PUBLIC_URL
+        : window.location.origin;
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/auth/callback${returnUrl ? `?returnUrl=${encodeURIComponent(returnUrl)}` : ''
-            }`,
+          redirectTo: `${siteOrigin}/auth/callback${returnUrl ? `?returnUrl=${encodeURIComponent(returnUrl)}` : ''}`,
         },
       });
 
