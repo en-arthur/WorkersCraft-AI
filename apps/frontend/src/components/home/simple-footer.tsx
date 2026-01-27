@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
 import { WorkersCraftLogo } from '@/components/sidebar/kortix-logo';
-import { LocaleSwitcher } from '@/components/home/locale-switcher';
 import { ThemeToggle } from '@/components/home/theme-toggle';
 import { useGitHubStars } from '@/hooks/utils';
 
@@ -43,11 +42,9 @@ export function SimpleFooter() {
               </a>
             </div>
 
-            {/* Theme and language switchers */}
+            {/* Theme toggle only (English only, no language switcher) */}
             <div className="flex items-center gap-1 pt-2">
               <ThemeToggle variant="compact" />
-              <span className="text-muted-foreground/30">|</span>
-              <LocaleSwitcher variant="compact" />
             </div>
           </div>
 
@@ -86,4 +83,3 @@ export function SimpleFooter() {
     </footer>
   );
 }
-

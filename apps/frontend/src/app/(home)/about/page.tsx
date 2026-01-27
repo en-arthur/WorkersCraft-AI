@@ -1,7 +1,5 @@
 'use client';
 
-import { SimpleFooter } from '@/components/home/simple-footer';
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
@@ -17,7 +15,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <SimpleFooter />
     </main>
   );
 }
