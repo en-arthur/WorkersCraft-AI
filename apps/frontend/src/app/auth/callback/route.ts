@@ -20,13 +20,9 @@ export async function GET(request: NextRequest) {
   const next = searchParams.get('returnUrl') || searchParams.get('redirect') || '/dashboard'
   const termsAccepted = searchParams.get('terms_accepted') === 'true'
   
-  // Use request origin for redirects (most reliable for local dev)
-  // This ensures localhost:3000 redirects stay on localhost, not staging
-  const requestOrigin = request.nextUrl.origin
-  // In production, NEXT_PUBLIC_URL MUST match Google OAuth Authorized Redirect URIs
-  const baseUrl = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_URL
-    ? process.env.NEXT_PUBLIC_URL
-    : requestOrigin || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+  // PRODUCTION ONLY - Always use production URL
+  const baseUrl = 'https://www.workerscraft.com'
+  
   const error = searchParams.get('error')
   const errorCode = searchParams.get('error_code')
   const errorDescription = searchParams.get('error_description')
