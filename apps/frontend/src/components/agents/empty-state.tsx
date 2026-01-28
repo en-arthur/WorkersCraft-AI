@@ -25,7 +25,7 @@ export const EmptyState = ({ hasAgents, onCreateAgent, onClearFilters }: EmptySt
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             {!hasAgents ? (
-              'Create your first worker to start automating tasks with custom instructions and tools. Configure custom AgentPress capabilities to fine tune a worker according to your needs.'
+              'Create your first worker to start automating tasks with custom instructions and tools. Configure custom capabilities to fine tune a worker according to your needs.'
             ) : (
               'No workers match your current search and filter criteria. Try adjusting your filters or search terms.'
             )}

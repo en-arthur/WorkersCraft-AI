@@ -156,7 +156,7 @@ export const EventTriggerConfigForm: React.FC<EventTriggerConfigFormProps> = ({
                   Worker Instructions
                 </h3>
                 <div className="space-y-3">
-                  <Label htmlFor="agent-prompt" className="text-sm">What should the agent do when this event occurs?</Label>
+                  <Label htmlFor="agent-prompt" className="text-sm">What should the worker do when this event occurs?</Label>
                   <Textarea
                     id="agent-prompt"
                     value={config.agent_prompt || ''}
@@ -251,7 +251,7 @@ export const EventTriggerConfigForm: React.FC<EventTriggerConfigFormProps> = ({
                     </div>
                     <div className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span>Your agent receives the event data and executes the configured action</span>
+                      <span>Your worker receives the event data and executes the configured action</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />

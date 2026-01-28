@@ -64,7 +64,7 @@ export function AgentVersionManager({ agent, onCreateVersion }: AgentVersionMana
               Version Management
             </CardTitle>
             <CardDescription>
-              Manage different versions of your agent configuration
+              Manage different versions of your worker configuration
             </CardDescription>
           </div>
           {onCreateVersion && (

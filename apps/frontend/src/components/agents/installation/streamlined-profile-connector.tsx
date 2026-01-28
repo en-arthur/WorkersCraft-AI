@@ -121,7 +121,7 @@ export const ProfileConnector: React.FC<ProfileConnectorProps> = ({
         onComplete?.();
       }
     } catch (error) {
-      console.error('Error creating profile:', error);
+      
       toast.error('Failed to create profile');
     } finally {
       setIsCreatingProfile(false);

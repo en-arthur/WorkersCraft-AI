@@ -108,7 +108,7 @@ export const GranularToolConfiguration = ({
 
     if (disabled && isSunaAgent) {
       toast.error("Tools cannot be modified", {
-        description: "Kortix's default tools are managed centrally and cannot be changed.",
+        description: "WorkersCraft's default tools are managed centrally and cannot be changed.",
       });
       return;
     }
@@ -150,7 +150,7 @@ export const GranularToolConfiguration = ({
 
     if (disabled && isSunaAgent) {
       toast.error("Methods cannot be modified", {
-        description: "Kortix's default tool methods are managed centrally and cannot be changed.",
+        description: "WorkerCraft's default tool methods are managed centrally and cannot be changed.",
       });
       return;
     }
@@ -271,7 +271,7 @@ export const GranularToolConfiguration = ({
         <div>
           <h3 className="text-lg font-semibold">Tool Configuration</h3>
           <p className="text-sm text-muted-foreground">
-            Configure tools and their individual capabilities for your agent
+            Configure tools and their individual capabilities for your worker
           </p>
         </div>
         <Badge variant="default" className="text-xs">

@@ -593,7 +593,7 @@ export const ComposioConnectionsSection: React.FC<ComposioConnectionsSectionProp
               <Settings className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">No Connections</h3>
               <p className="text-muted-foreground">
-                Connect integrations to your agents and you will be able to manage them here.
+                Connect integrations to your digital workers and you will be able to manage them here.
               </p>
             </div>
           </CardContent>

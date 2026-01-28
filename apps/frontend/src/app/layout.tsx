@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  authors: [{ name: 'WorkersCraft AI Team', url: 'https://www.workerscraft.ai' }],
+  authors: [{ name: 'WorkersCraft AI Team', url: 'https://www.workerscraft.com' }],
   creator: 'WorkersCraft AI Team',
   publisher: 'WorkersCraft AI Team',
   applicationName: siteMetadata.name,
@@ -174,7 +174,7 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="WorkersCraft AI" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="WorkersCraft AI: Premium Agentic Workforce Platform" />
+        <meta name="twitter:title" content="WorkersCraft AI: Ai digital worker Platform" />
         <meta name="twitter:description" content="WorkersCraft AI is a premium, enterprise-grade 'Agentic Workforce' platform. It moves beyond simple chatbots to provide a suite of autonomous Digital Workers designed to execute complex work operations from start to finish." />
         <meta name="twitter:image" content="https://www.workerscraft.ai/banner.png" />
         <meta name="twitter:site" content="@workerscraft_ai" />
@@ -198,12 +198,8 @@ export default function RootLayout({
               url: siteMetadata.url,
               logo: `${siteMetadata.url}/favicon.png`,
               description: siteMetadata.description,
-              foundingDate: '2024',
-              sameAs: [
-                'https://github.com/Kortix-ai/Suna',
-                'https://x.com/kortix',
-                'https://linkedin.com/company/kortix',
-              ],
+              foundingDate: '2025',
+              
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Customer Support',

@@ -388,7 +388,7 @@ Customize Worker Icon
           <Button 
             onClick={handleIconSave}
           >
-            Save Icon
+            Save
           </Button>
         </DialogFooter>
       </DialogContent>

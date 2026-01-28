@@ -4,18 +4,14 @@ import { ArrowRight, Github } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Suna is now WorkersCraft AI | WorkersCraft AI - Premium Agentic Workforce Platform',
-  description: 'Suna has rebranded to WorkersCraft AI. WorkersCraft AI (formerly Suna) is a premium, enterprise-grade "Agentic Workforce" platform that moves beyond simple chatbots to provide autonomous Digital Workers.',
+  title: 'WorkersCraft AI - AI digital worker platform',
+  description: 'WorkersCraft AI. WorkersCraft AI is a premium, enterprise-grade "Agentic Workforce" platform that moves beyond simple chatbots to provide autonomous Digital Workers.',
   keywords: [
-    'Suna',
     'WorkersCraft AI',
-    'Suna AI',
-    'Suna assistant',
-    'Suna.so',
-    'where is Suna',
+    'WorkersCraft AI assistant',
     'WorkersCraft AI',
-    'Suna rebrand',
-    'Suna is now WorkersCraft AI',
+    'where is WorkersCraft AI',
+    'WorkersCraft AI',
     'AI assistant',
     'Agentic Workforce',
     'Digital Workers',
@@ -24,28 +20,28 @@ export const metadata: Metadata = {
     'autonomous AI',
   ],
   openGraph: {
-    title: 'Suna is now WorkersCraft AI',
-    description: 'WorkersCraft AI (formerly Suna) - Premium Agentic Workforce Platform with autonomous Digital Workers.',
+    title: 'WorkersCraft AI',
+    description: 'WorkersCraft AI- Premium Agentic Workforce Platform with autonomous Digital Workers.',
     type: 'website',
-    url: 'https://www.workerscraft.ai/suna',
+    url: 'https://www.workerscraft.com',
     siteName: 'WorkersCraft AI',
     images: [
       {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 'Kortix - Formerly Suna',
+        alt: 'WorkersCraft AI',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Suna is now WorkersCraft AI',
-    description: 'WorkersCraft AI (formerly Suna) - Premium Agentic Workforce Platform with autonomous Digital Workers.',
+    title: 'WorkersCraft AI',
+    description: 'WorkersCraft AI - Premium Agentic Workforce Platform with autonomous Digital Workers.',
     images: ['/banner.png'],
   },
   alternates: {
-    canonical: 'https://www.kortix.com/suna',
+    canonical: 'https://www.workerscraft.com',
   },
   robots: {
     index: true,
@@ -63,17 +59,17 @@ export default function SunaPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'Kortix',
-            alternateName: ['Suna', 'Kortix Suna', 'Suna AI'],
-            url: 'https://www.kortix.com',
-            logo: 'https://www.kortix.com/favicon.png',
+            name: 'WorkersCraft AI',
+            alternateName: ['WorkersCraft AI', 'Digital Workers', 'Autonomous AI Agent'],
+            url: 'https://www.workerscraft.com',
+            logo: 'https://www.workerscraft.com/favicon.png',
             sameAs: [
               'https://github.com/kortix-ai',
               'https://x.com/kortix',
               'https://linkedin.com/company/kortix',
             ],
             description:
-              'Kortix (formerly known as Suna) is an open source generalist AI worker that helps you accomplish real-world tasks through natural conversation.',
+              'WorkersCraft AI is platform that provides users with AI Digital workers that helps you accomplish real-world tasks through natural conversation.',
           }),
         }}
       />
@@ -89,13 +85,13 @@ export default function SunaPage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://www.kortix.com',
+                item: 'https://www.workerscraft.com',
               },
               {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'Suna is now Kortix',
-                item: 'https://www.kortix.com/suna',
+                name: 'WorkersCraft AI',
+                item: 'https://www.workerscraft.com/suna',
               },
             ],
           }),
@@ -139,7 +135,7 @@ export default function SunaPage() {
 
               {/* Main Heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter text-balance text-center">
-                Kortix
+                WorkersCraft AI
               </h1>
 
             </div>
@@ -150,63 +146,19 @@ export default function SunaPage() {
                 href="/"
                 className="flex h-12 items-center justify-center w-full sm:w-auto px-8 text-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm font-medium"
               >
-                Go to Kortix
+                Go to WorkersCraft AI
                 <ArrowRight className="ml-2 size-4" />
               </Link>
-              <a
-                href="https://github.com/kortix-ai/suna"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-12 items-center justify-center w-full sm:w-auto px-8 text-center rounded-full border border-border bg-background hover:bg-accent/50 transition-all font-medium"
-              >
-                <Github className="mr-2 size-4" />
-                View on GitHub
-              </a>
+              
             </div>
           </div>
 
-          {/* Content Sections */}
-          <div className="relative z-10 w-full max-w-4xl mx-auto pb-20 sm:pb-32">
-            <div className="space-y-20 sm:space-y-32 text-center">
-              {/* What Changed */}
-              <div className="space-y-6">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter">
-                  What changed?
-                </h2>
-                <div className="space-y-3 text-base md:text-lg text-muted-foreground font-medium">
-                  <p>Our name changed from Suna to Kortix</p>
-                  <p>Our domain is now kortix.com</p>
-                </div>
-              </div>
+          
 
-              {/* Divider */}
-              <div className="w-12 h-px bg-border mx-auto" />
+              
 
-              {/* What Stayed */}
-              <div className="space-y-6">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter">
-                  What stayed the same?
-                </h2>
-                <div className="space-y-3 text-base md:text-lg text-muted-foreground font-medium">
-                  <p>Same powerful AI capabilities</p>
-                  <p>All your existing agents and workflows</p>
-                </div>
-              </div>
 
-              {/* Divider */}
-              <div className="w-12 h-px bg-border mx-auto" />
-
-              {/* GitHub */}
-              <div className="space-y-6">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter">
-                  Where to find us?
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground font-medium">
-                  Our GitHub repository remains at github.com/kortix-ai/suna
-                </p>
-              </div>
-            </div>
-          </div>
+              
 
           {/* Footer Wordmark Section */}
           <div className="relative w-full mx-auto overflow-hidden pb-20 sm:pb-32">

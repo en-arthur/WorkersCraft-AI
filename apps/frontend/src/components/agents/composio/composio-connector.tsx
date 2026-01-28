@@ -783,7 +783,7 @@ export const ComposioConnector: React.FC<ComposioConnectorProps> = ({
             </div>
             <h3 className="font-semibold text-lg mb-2">Adding Tools...</h3>
             <p className="text-sm text-muted-foreground text-center">
-              Please wait while we add all {app.name} tools to your agent
+              Please wait while we add all {app.name} tools to your digital worker
             </p>
           </div>
         ) : (

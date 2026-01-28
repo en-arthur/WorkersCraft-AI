@@ -101,7 +101,7 @@ export function KBFilePreviewModal({ isOpen, onClose, file, onEditSummary }: KBF
                             className="resize-none flex-1 min-h-[250px] max-h-[250px]"
                         />
                         <p className="text-xs text-muted-foreground">
-                            This summary helps AI agents understand and search for relevant content in this file.
+                            This summary helps AI workers understand and search for relevant content in this file.
                         </p>
                     </div>
 

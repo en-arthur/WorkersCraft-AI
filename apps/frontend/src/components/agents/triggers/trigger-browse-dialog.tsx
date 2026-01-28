@@ -103,7 +103,7 @@ export const TriggerBrowseDialog: React.FC<TriggerBrowseDialogProps> = ({
         <DialogHeader>
           <DialogTitle>Browse Trigger Providers</DialogTitle>
           <DialogDescription>
-            Choose from available trigger providers to connect external services to your agent
+            Choose from available trigger providers to connect external services to your worker
           </DialogDescription>
         </DialogHeader>
         

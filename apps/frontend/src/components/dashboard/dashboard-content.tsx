@@ -80,7 +80,7 @@ export function DashboardContent() {
     
     // If we have checkout/subscription success indicators
     if (subscriptionSuccess === 'success' || checkoutSuccess === 'success' || sessionId || clientSecret) {
-      console.log('🎉 Subscription success detected! Showing celebration...');
+      
       celebrationTriggeredRef.current = true;
       
       // Track purchase event for GTM/GA4

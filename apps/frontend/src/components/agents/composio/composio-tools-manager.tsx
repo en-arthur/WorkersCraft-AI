@@ -133,7 +133,7 @@ export const ComposioToolsManager: React.FC<ComposioToolsManagerProps> = ({
                 Configure {currentProfile?.toolkit_name} Tools
               </DialogTitle>
               <p className="text-sm text-muted-foreground mt-1">
-                Select tools to add to your agent
+                Select tools to add to your worker
               </p>
             </div>
           </div>

@@ -223,7 +223,7 @@ export function AgentModelSelector({
       const isPowerModel = modelId === 'kortix/power';
       openPricingModal({
         isAlert: true,
-        alertTitle: isPowerModel ? 'Upgrade to access Kortix Advanced mode' : 'Upgrade to access this model',
+        alertTitle: isPowerModel ? 'Upgrade to access WorkersCraft AI Advanced mode' : 'Upgrade to access this model',
       });
     }
   };

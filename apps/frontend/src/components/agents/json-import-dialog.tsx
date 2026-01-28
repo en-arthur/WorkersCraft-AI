@@ -250,7 +250,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
         <Label htmlFor="json-content">Worker JSON</Label>
         <Textarea
           id="json-content"
-          placeholder="Paste your exported agent JSON here..."
+          placeholder="Paste your exported worker JSON here..."
           value={jsonText}
           onChange={(e) => setJsonText(e.target.value)}
           className="min-h-[300px] max-h-[300px] font-mono text-sm"
@@ -372,7 +372,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
       <div className="text-center">
         <h3 className="font-semibold">Importing Worker</h3>
         <p className="text-sm text-muted-foreground">
-          Creating your agent with the configured credentials...
+          Creating your worker with the configured credentials...
         </p>
       </div>
     </div>
@@ -391,7 +391,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
           <Alert>
             <CheckCircle2 className="h-4 w-4" />
             <AlertDescription>
-              No additional setup required. This agent can be imported directly.
+              No additional setup required. This worker can be imported directly.
             </AlertDescription>
           </Alert>
         )}
@@ -399,7 +399,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
           <Alert>
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
-              This agent requires credential setup for{' '}
+              This worker requires credential setup for{' '}
               {(analysis.missing_regular_credentials?.length || 0) + 
                (analysis.missing_custom_configs?.length || 0)} integrations.
             </AlertDescription>
@@ -417,7 +417,7 @@ export const JsonImportDialog: React.FC<JsonImportDialogProps> = ({
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
-              Failed to import Worker. Please try again or check your credential configurations.
+              Failed to import Worker. Please try worker or check your credential configurations.
             </AlertDescription>
           </Alert>
         )}

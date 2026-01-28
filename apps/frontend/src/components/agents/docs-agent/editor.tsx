@@ -115,7 +115,6 @@ export const Editor = ({
       <li>Rich text formatting</li>
       <li>Tables and lists</li>
       <li>Images and videos</li>
-      <li>Mathematical equations</li>
       <li>And much more!</li>
     </ul>
   `,

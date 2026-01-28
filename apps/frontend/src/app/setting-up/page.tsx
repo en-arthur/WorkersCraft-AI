@@ -133,7 +133,7 @@ export default function SettingUpPage() {
           {(status === 'checking' || status === 'initializing') && (
             <>
               <h1 className="text-[43px] font-normal tracking-tight text-foreground leading-none text-center">
-                Setting Up Your Account
+                Creating Your Account
               </h1>
 
               <p className="text-[16px] text-foreground/60 text-center leading-relaxed">
@@ -149,7 +149,7 @@ export default function SettingUpPage() {
                           <div className="h-2.5 w-2.5 border border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                           <span className="text-base font-medium text-blue-400">Initializing</span>
                         </div>
-                        <p className="text-base text-gray-400">Setting up your account...</p>
+                        <p className="text-base text-gray-400">Creating your account...</p>
                       </div>
                     </div>
                     <div className="h-12 w-12 flex items-center justify-center">
@@ -170,7 +170,7 @@ export default function SettingUpPage() {
               </h1>
 
               <p className="text-[16px] text-foreground/60 text-center leading-relaxed">
-                Your account is ready. Redirecting you to the dashboard...
+                Your account is ready. Loading your dashboard...
               </p>
 
               <Card className="w-full h-24 bg-card border border-border">

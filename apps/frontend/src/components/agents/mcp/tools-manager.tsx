@@ -207,12 +207,12 @@ export const ToolsManager: React.FC<ToolsManagerProps> = (props) => {
           <DialogDescription>
             {versionData ? (
               <span className="flex items-center gap-2 text-amber-600">
-                Changes will make a new version of the agent.
+                Changes will make a new version of the Worker.
               </span>
             ) : saveMode === 'callback' ? (
-              <span>Choose which {displayName} tools are available to your agent. Changes will be saved when you save the agent configuration.</span>
+              <span>Choose which {displayName} tools are available to your Worker. Changes will be saved when you save the agent configuration.</span>
             ) : (
-              <span>Choose which {displayName} tools are available to your agent. Changes will be saved immediately.</span>
+              <span>Choose which {displayName} tools are available to your Worker. Changes will be saved immediately.</span>
             )}
           </DialogDescription>
         </DialogHeader>
@@ -302,7 +302,7 @@ export const ToolsManager: React.FC<ToolsManagerProps> = (props) => {
                 <Alert className="p-2">
                   <Info className="h-3 w-3" />
                   <AlertDescription className="text-xs">
-                    This will update the MCP configuration for your agent
+                    This will update the MCP configuration for your worker
                   </AlertDescription>
                 </Alert>
               )}

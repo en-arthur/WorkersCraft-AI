@@ -30,7 +30,7 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   const availableLangs = Object.keys(langsTyped).filter(
     (key) => typeof langsTyped[key] === 'function'
   );
-  console.log('[CodeEditor] Available languages:', availableLangs);
+  //console.log('[CodeEditor] Available languages:', availableLangs);
 }
 
 // Helper function to safely get language extension

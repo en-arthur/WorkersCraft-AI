@@ -333,7 +333,7 @@ export const AgentsGrid: React.FC<AgentsGridProps> = ({
                           Are you sure you want to delete &quot;{agent.name}&quot;? This action cannot be undone.
                           {agent.is_public && (
                             <span className="block mt-2 text-amber-600 dark:text-amber-400">
-                              Note: This agent is currently published to the marketplace and will be removed from there as well.
+                              Note: This worker is currently published to the marketplace and will be removed from there as well.
                             </span>
                           )}
                         </AlertDialogDescription>

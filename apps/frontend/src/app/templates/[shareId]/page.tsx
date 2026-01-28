@@ -310,7 +310,7 @@ export default function TemplateSharePage() {
       await navigator.clipboard.writeText(currentUrl);
       toast.success('Share link copied to clipboard!');
     } catch {
-      toast.error('Failed to copy link to clipboard');
+      toast.error('Unable to copy link to clipboard');
     }
   };
 
@@ -340,7 +340,7 @@ export default function TemplateSharePage() {
             <h2 className="text-2xl font-semibold mb-2">Template not found</h2>
             <p className="text-muted-foreground mb-4">The template you're looking for doesn't exist or has been removed.</p>
             <Button onClick={() => router.push('/agents?tab=my-agents')} className="rounded-lg">
-              Browse Agents
+              Browse Digital Workers
             </Button>
           </div>
         </div>
@@ -433,7 +433,7 @@ export default function TemplateSharePage() {
                   className="bg-secondary h-8 flex items-center justify-center text-sm font-normal tracking-wide rounded-full text-primary-foreground dark:text-secondary-foreground w-fit px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] border border-white/[0.12]"
                 >
                   <Sparkles className="h-3 w-3 mr-2" />
-                  Install Agent
+                  Get Digital Worker
                 </Button>
               </div>
             </div>
@@ -451,7 +451,7 @@ export default function TemplateSharePage() {
                 className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Agents
+                Back
               </Link>
               <div className="relative">
                 {colorPalette.length > 0 && (
@@ -563,7 +563,7 @@ export default function TemplateSharePage() {
                   System Prompt
                 </CardTitle>
                 <CardDescription>
-                  The core instructions that define this agent's behavior
+                  The core instructions that define this worker's behavior
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-0">
@@ -611,7 +611,7 @@ export default function TemplateSharePage() {
                     Integrations
                   </CardTitle>
                   <CardDescription>
-                    External services and APIs this agent can connect to
+                    External services and APIs this worker can connect to
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
@@ -651,7 +651,7 @@ export default function TemplateSharePage() {
                     Event Triggers
                   </CardTitle>
                   <CardDescription>
-                    Automated triggers that can activate this agent
+                    Automated triggers that can activate this worker
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
@@ -697,7 +697,7 @@ export default function TemplateSharePage() {
                     Custom Tools
                   </CardTitle>
                   <CardDescription>
-                    Specialized tools built for this agent
+                    Specialized tools built for this digital worker
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">

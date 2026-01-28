@@ -137,7 +137,7 @@ export const MarketplaceAgentPreviewDialog: React.FC<MarketplaceAgentPreviewDial
       await navigator.clipboard.writeText(shareUrl);
       toast.success('Share link copied to clipboard!');
     } catch (error: any) {
-      console.error('Failed to copy share link:', error);
+      
       toast.error('Failed to copy share link to clipboard');
     } finally {
       setIsGeneratingShareLink(false);
@@ -305,7 +305,7 @@ export const MarketplaceAgentPreviewDialog: React.FC<MarketplaceAgentPreviewDial
                 ) : (
                   <>
                     <Download className="h-5 w-5" />
-                    Install Worker
+                    Get Worker
                   </>
                 )}
               </Button>

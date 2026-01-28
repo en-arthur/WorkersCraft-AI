@@ -203,7 +203,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
             ) : orderedAgents.length === 0 ? (
               <div className="px-3 py-6 text-center text-sm text-muted-foreground">
                 <Search className="h-6 w-6 mx-auto mb-2 opacity-40" />
-                <p>No agents found</p>
+                <p>No Workers found</p>
                 {searchQuery && (
                   <p className="text-xs mt-1 opacity-60">Try adjusting your search</p>
                 )}
@@ -273,7 +273,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
                   onClick={handleCreateAgent}
                 >
                   <Plus className="h-4 w-4" />
-                  <span className="font-medium">Create new agent</span>
+                  <span className="font-medium">Create new Worker</span>
                 </DropdownMenuItem>
               </div>
             </>

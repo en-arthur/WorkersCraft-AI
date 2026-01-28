@@ -193,7 +193,7 @@ export const ComposioToolsSelector: React.FC<ComposioToolsSelectorProps> = ({
         initializedRef.current = true;
       }
     } catch (err) {
-      console.error('Failed to load current agent tools:', err);
+      console.error('Failed to load current worker tools:', err);
       // If API call fails, fall back to important tools
       if (availableTools.length > 0) {
         const importantTools = availableTools.filter(tool => tool.tags?.includes('important'));

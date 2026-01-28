@@ -563,7 +563,7 @@ export const EventBasedTriggerDialog: React.FC<EventBasedTriggerDialogProps> = (
                                         <div>
                                             <h2 className="text-xl font-semibold">Select an Application</h2>
                                             <p className="text-sm text-muted-foreground">
-                                                Choose an app to monitor for events and trigger your agent
+                                                Choose an app to monitor for events and trigger your worker
                                             </p>
                                         </div>
                                         <div className="relative max-w-md">

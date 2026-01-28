@@ -88,7 +88,7 @@ export const PublishDialog = ({
         <DialogHeader>
           <DialogTitle>Publish Template to Marketplace</DialogTitle>
           <DialogDescription>
-            Make "{publishDialog?.templateName}" available for the community to discover and install.
+            Make "{publishDialog?.templateName}" available for the community to discover and use.
           </DialogDescription>
         </DialogHeader>
 
@@ -98,7 +98,7 @@ export const PublishDialog = ({
               <div>
                 <Label className="text-base font-semibold">Usage Examples (Optional)</Label>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Add example messages to help users understand how your agent works
+                  Add example messages to help users understand how your worker works
                 </p>
               </div>
               <Button

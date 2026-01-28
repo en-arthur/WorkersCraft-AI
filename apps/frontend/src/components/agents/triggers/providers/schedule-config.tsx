@@ -334,7 +334,7 @@ export const ScheduleTriggerConfigForm: React.FC<ScheduleTriggerConfigFormProps>
                   Worker Prompt
                 </h3>
                 <div className="space-y-3">
-                  <Label htmlFor="agent-prompt" className="text-sm">Instructions for the agent when this trigger fires</Label>
+                  <Label htmlFor="agent-prompt" className="text-sm">Instructions for the worker when this trigger fires</Label>
                   <Textarea
                     id="agent-prompt"
                     value={config.agent_prompt || ''}

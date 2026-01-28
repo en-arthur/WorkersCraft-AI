@@ -102,7 +102,7 @@ export function CreateVersionButton({
           <DialogHeader>
             <DialogTitle>Create New Version</DialogTitle>
             <DialogDescription>
-              Save the current agent configuration as a new version. This allows you to preserve different configurations and switch between them.
+              Save the current worker configuration as a new version. This allows you to preserve different configurations and switch between them.
             </DialogDescription>
           </DialogHeader>
           

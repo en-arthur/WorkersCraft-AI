@@ -113,7 +113,7 @@ export const OneClickIntegrations: React.FC<OneClickIntegrationsProps> = ({
         toast.success('Schedule trigger removed successfully');
       } catch (error) {
         toast.error('Failed to remove schedule trigger');
-        console.error('Error removing schedule trigger:', error);
+        
       }
       return;
     }
@@ -143,7 +143,7 @@ export const OneClickIntegrations: React.FC<OneClickIntegrationsProps> = ({
       setConfiguringSchedule(false);
     } catch (error: any) {
       toast.error(error.message || 'Failed to create schedule trigger');
-      console.error('Error creating schedule trigger:', error);
+      
     }
   };
 

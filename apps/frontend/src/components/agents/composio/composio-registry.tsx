@@ -383,7 +383,7 @@ export const ComposioRegistry: React.FC<ComposioRegistryProps> = ({
 
   const handleConnect = (app: ComposioToolkit) => {
     if (mode !== 'profile-only' && !currentAgentId && showAgentSelector) {
-      toast.error('Please select an agent first');
+      toast.error('Please select a worker first');
       return;
     }
     setSelectedApp(app);
@@ -392,7 +392,7 @@ export const ComposioRegistry: React.FC<ComposioRegistryProps> = ({
 
   const handleConfigure = (app: ComposioToolkit, profile: ComposioProfile) => {
     if (mode !== 'profile-only' && !currentAgentId) {
-      toast.error('Please select an agent first');
+      toast.error('Please select a worker first');
       return;
     }
     setSelectedApp(app);
@@ -445,7 +445,7 @@ export const ComposioRegistry: React.FC<ComposioRegistryProps> = ({
 
   const handleCustomMCPSave = async (customConfig: any): Promise<void> => {
     if (!currentAgentId) {
-      throw new Error('Please select an agent first');
+      throw new Error('Please select a worker first');
     }
 
     // Create MCP configuration for agent

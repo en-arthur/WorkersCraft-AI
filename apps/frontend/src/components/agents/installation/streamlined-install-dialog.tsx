@@ -376,7 +376,7 @@ export const StreamlinedInstallDialog: React.FC<StreamlinedInstallDialogProps> =
                     <div>
                       <h3 className="font-semibold">Ready to install!</h3>
                       <p className="text-sm text-muted-foreground">
-                        Give your agent a name and we'll set everything up.
+                        Give your worker a name and we'll set everything up.
                       </p>
                     </div>
                   </div>
@@ -387,7 +387,7 @@ export const StreamlinedInstallDialog: React.FC<StreamlinedInstallDialogProps> =
                 <Label htmlFor="instance-name">Worker Name</Label>
                 <Input
                   id="instance-name"
-                  placeholder="Enter a name for this agent"
+                  placeholder="Enter a name for this worker"
                   value={instanceName}
                   onChange={handleInstanceNameChange}
                   className="h-11"

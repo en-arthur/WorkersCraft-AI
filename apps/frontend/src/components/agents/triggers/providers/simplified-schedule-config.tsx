@@ -507,7 +507,7 @@ export const SimplifiedScheduleConfig: React.FC<SimplifiedScheduleConfigProps> =
                         <AgentSelector
                           selectedAgentId={selectedAgent}
                           onAgentSelect={onAgentSelect}
-                          placeholder="Choose an agent to handle this task"
+                          placeholder="Choose a worker to handle this task"
                           showCreateOption={true}
                         />
                       </div>
@@ -1017,7 +1017,7 @@ export const SimplifiedScheduleConfig: React.FC<SimplifiedScheduleConfigProps> =
                         <div className="flex-1">
                           <Label className="font-medium">Worker Instructions</Label>
                           <p className="text-sm text-muted-foreground">
-                            Provide instructions for your agent to execute
+                            Provide instructions for your worker to execute
                           </p>
                         </div>
                       </div>
@@ -1030,7 +1030,7 @@ export const SimplifiedScheduleConfig: React.FC<SimplifiedScheduleConfigProps> =
                     <div className="border rounded-lg p-4 space-y-4">
                       <div>
                         <h3 className="font-medium mb-1">Worker Instructions</h3>
-                        <p className="text-sm text-muted-foreground">Provide specific instructions for your agent</p>
+                        <p className="text-sm text-muted-foreground">Provide specific instructions for your worker</p>
                       </div>
                       <div className="space-y-2">
                         <Textarea

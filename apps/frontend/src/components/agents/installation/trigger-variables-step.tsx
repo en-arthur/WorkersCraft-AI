@@ -45,7 +45,7 @@ export const TriggerVariablesStep: React.FC<TriggerVariablesStepProps> = ({
   const getVariablePlaceholder = (varName: string): string => {
     const lowerName = varName.toLowerCase();
     if (lowerName.includes('name') || lowerName.includes('brand')) {
-      return 'e.g., Acme Corporation';
+      return 'e.g., WorkersCraft AI LLC';
     }
     if (lowerName.includes('email')) {
       return 'e.g., contact@example.com';
