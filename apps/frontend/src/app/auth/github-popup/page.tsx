@@ -121,10 +121,12 @@ export default function GitHubOAuthPopup() {
           // Start the OAuth flow
           setStatus('loading');
 
+          // Use NEXT_PUBLIC_URL for production consistency with OAuth redirect URIs
+          const redirectOrigin = process.env.NEXT_PUBLIC_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000');
           const { error } = await supabase.auth.signInWithOAuth({
             provider: 'github',
             options: {
-              redirectTo: `${window.location.origin}/auth/github-popup`,
+              redirectTo: `${redirectOrigin}/auth/github-popup`,
               queryParams: {
                 access_type: 'online',
                 prompt: 'select_account',

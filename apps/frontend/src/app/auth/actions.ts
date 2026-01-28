@@ -266,7 +266,10 @@ export async function signUpWithPassword(prevState: any, formData: FormData) {
 
   const supabase = await createClient();
 
-  const baseUrl = origin || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+  // In production, NEXT_PUBLIC_URL MUST match Supabase auth callback configuration
+  const baseUrl = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_URL
+    ? process.env.NEXT_PUBLIC_URL
+    : origin || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
   const emailRedirectTo = `${baseUrl}/auth/callback?returnUrl=${encodeURIComponent(returnUrl || '/dashboard')}`;
 
   const { error } = await supabase.auth.signUp({

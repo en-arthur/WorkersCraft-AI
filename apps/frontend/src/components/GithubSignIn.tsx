@@ -109,8 +109,10 @@ export default function GitHubSignIn({ returnUrl, referralCode }: GitHubSignInPr
         document.cookie = `pending-referral-code=${referralCode.trim().toUpperCase()}; path=/; max-age=600; SameSite=Lax`;
       }
 
+      // Use NEXT_PUBLIC_URL for production consistency with OAuth redirect URIs
+      const redirectOrigin = process.env.NEXT_PUBLIC_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000');
       const popup = window.open(
-        `${window.location.origin}/auth/github-popup`,
+        `${redirectOrigin}/auth/github-popup`,
         'GitHubOAuth',
         'width=500,height=600,scrollbars=yes,resizable=yes,status=yes,location=yes',
       );

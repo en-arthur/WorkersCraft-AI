@@ -23,7 +23,10 @@ export async function GET(request: NextRequest) {
   // Use request origin for redirects (most reliable for local dev)
   // This ensures localhost:3000 redirects stay on localhost, not staging
   const requestOrigin = request.nextUrl.origin
-  const baseUrl = requestOrigin || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+  // In production, NEXT_PUBLIC_URL MUST match Google OAuth Authorized Redirect URIs
+  const baseUrl = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_URL
+    ? process.env.NEXT_PUBLIC_URL
+    : requestOrigin || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
   const error = searchParams.get('error')
   const errorCode = searchParams.get('error_code')
   const errorDescription = searchParams.get('error_description')
