@@ -110,34 +110,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="border-t border-border">
-        <div className="max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-28">
-          <motion.div
-            className="text-center space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-              Want to join our tribe?
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              We're always looking for exceptional people. If you're passionate about AI and want to be part of what we're building, reach out.
-            </p>
-            <div className="pt-4">
-              <Button asChild size="lg" variant="outline">
-                <a href="mailto:marko@kortix.com">
-                  Get in touch
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       <SimpleFooter />
     </main>
   );
