@@ -8,35 +8,20 @@ import Link from 'next/link';
 
 const values = [
   {
-    title: "Ship Fast",
-    description: "We move quickly and iterate. Speed is a feature, not an afterthought."
+    title: "Move Fast",
+    description: "We build quickly and learn as we go. Speed isn't a bonus—it's how we work."
   },
   {
-    title: "Debate Openly",
-    description: "The best ideas win, regardless of who they come from. No politics, no hierarchy of opinions."
+    title: "Ideas Over Egos",
+    description: "The best idea wins, no matter who suggests it. No office politics, just honest debate."
   },
   {
-    title: "Think Long-Term",
-    description: "We're building infrastructure for the future, not chasing trends."
+    title: "Build for Tomorrow",
+    description: "We're making things that will matter in ten years, not just what's trendy today."
   },
   {
-    title: "Stay Curious",
-    description: "New places, new perspectives. We believe movement keeps us sharp."
-  }
-];
-
-const openings = [
-  {
-    title: "AI Engineer",
-    location: "Remote (Global)",
-    description: "Build AI agents that actually work. Deep knowledge of LLMs, agent architectures, and shipping AI products to production.",
-    href: "/careers/ai-engineer",
-  },
-  {
-    title: "Design Engineer",
-    location: "Remote (Global)",
-    description: "Engineer with taste. Exceptional frontend skills paired with an obsession for beautiful, polished interfaces.",
-    href: "/careers/design-engineer",
+    title: "Embrace Change",
+    description: "New places bring new ideas. We believe staying on the move keeps us creative."
   }
 ];
 
@@ -53,11 +38,11 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-muted border border-border">
-              <span className="text-sm font-medium text-foreground">We're hiring</span>
+              <span className="text-sm font-medium text-foreground">Careers</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-balance">
-              Ship fast. Travel far.
+              Build fast. Work anywhere.
             </h1>
             
             <p className="text-foreground text-[1.375rem] md:text-[1.5rem] leading-[1.6] tracking-[-0.025em] font-medium max-w-2xl opacity-50">
@@ -108,52 +93,20 @@ export default function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center space-y-6"
           >
-            <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-4">
+            <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
               Open positions
             </h2>
-            <p className="text-muted-foreground mb-12">
-              Doesn't matter where you are. If you build great things, we want to hear from you.
-            </p>
+            <div className="max-w-xl mx-auto space-y-4">
+              <p className="text-muted-foreground">
+                We don't have any open roles at the moment, but we're always growing.
+              </p>
+              <p className="text-muted-foreground">
+                Check back soon or reach out if you think you'd be a great fit.
+              </p>
+            </div>
           </motion.div>
-
-          <div className="space-y-4">
-            {openings.map((job, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Link
-                  href={job.href}
-                  className="group block p-6 rounded-2xl border border-border bg-card hover:bg-accent/50 hover:border-foreground/20 transition-all duration-300"
-                >
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-semibold group-hover:text-foreground transition-colors">
-                        {job.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {job.description}
-                      </p>
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <MapPin className="w-3.5 h-3.5" />
-                        {job.location}
-                      </div>
-                    </div>
-                    <div className="flex-shrink-0 md:mt-1">
-                      <div className="inline-flex items-center gap-2 text-sm font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity">
-                        View role
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -168,10 +121,10 @@ export default function CareersPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-              Don't see your role?
+              Want to join our tribe?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              We're always looking for exceptional people. If you're passionate about AI and want to join our tribe, reach out.
+              We're always looking for exceptional people. If you're passionate about AI and want to be part of what we're building, reach out.
             </p>
             <div className="pt-4">
               <Button asChild size="lg" variant="outline">
@@ -189,4 +142,3 @@ export default function CareersPage() {
     </main>
   );
 }
-
