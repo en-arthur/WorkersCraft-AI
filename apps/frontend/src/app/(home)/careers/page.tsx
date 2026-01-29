@@ -46,8 +46,8 @@ export default function CareersPage() {
             </h1>
             
             <p className="text-foreground text-[1.375rem] md:text-[1.5rem] leading-[1.6] tracking-[-0.025em] font-medium max-w-2xl opacity-50">
-              Eight people across three continents, building AI workers that actually work. 
-              Remote-first, travel-friendly, obsessed with shipping.
+              We're a small team building AI that actually helps people get work done. 
+              Work from anywhere, move when you want, and ship things that matter.
             </p>
           </motion.div>
         </div>
