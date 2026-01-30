@@ -81,6 +81,11 @@ function detectDesktopPlatform(): DesktopPlatform {
 }
 
 export function KortixAppBanners(props: KortixAppBannersProps) {
+  // All app marketing banners (mobile + desktop) are disabled.
+  // Keep the component exported so existing imports do not break,
+  // but render nothing.
+  return null;
+
   const disableMobileAdvertising =
     props.disableMobileAdvertising ?? featureFlags.disableMobileAdvertising;
 
