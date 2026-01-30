@@ -392,7 +392,7 @@ function PricingTier({
   const currentStatus = currentSubscription?.subscription.status;
   const isCurrentActivePlan = isAuthenticated && isSameTier &&
     (isSameBillingPeriod || isRevenueCatSubscription) &&
-    (currentStatus === 'active' || currentStatus === 'trialing');
+    (currentStatus === 'active');
 
   const isScheduled = isAuthenticated && (currentSubscription as any)?.has_schedule;
   const isScheduledTargetPlan =
@@ -430,17 +430,8 @@ function PricingTier({
       buttonVariant = 'outline';
       buttonClassName = 'opacity-70 cursor-not-allowed bg-muted text-muted-foreground';
     } else if (isCurrentActivePlan) {
-      if (userPlanName === 'trial') {
-        buttonText = t('trialActive');
-        statusBadge = (
-          <span className="bg-green-500/10 text-green-600 text-[10px] font-medium px-1.5 py-0.5 rounded-full">
-            {t('trialBadge')}
-          </span>
-        );
-      } else {
-        buttonText = t('currentPlan');
-        statusBadge = null;
-      }
+      buttonText = t('currentPlan');
+      statusBadge = null;
       buttonDisabled = true;
       buttonVariant = 'secondary';
       ringClass = isCompact ? 'ring-1 ring-primary' : 'ring-2 ring-primary';

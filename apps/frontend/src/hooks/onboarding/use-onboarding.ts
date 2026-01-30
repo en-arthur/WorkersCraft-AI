@@ -156,18 +156,16 @@ export const usePostSubscriptionOnboarding = () => {
       return false;
     }
     
-    // Check if user has active subscription or trial
+    // Check if user has active subscription
     const hasActiveSubscription = subscriptionData?.subscription && 
                                  subscriptionData.subscription.status === 'active' &&
                                  !subscriptionData.subscription.cancel_at_period_end;
-    
-    const hasActiveTrial = subscriptionData?.trial_status === 'active';
     
     // ✅ Use tier_key and only trigger onboarding for PAID tiers (not free)
     const tierKey = subscriptionData?.tier_key || subscriptionData?.tier?.name;
     const hasPaidTier = tierKey && tierKey !== 'none' && tierKey !== 'free';
     
-    return (hasActiveSubscription && hasPaidTier) || (hasActiveTrial && hasPaidTier);
+    return hasActiveSubscription && hasPaidTier;
   };
   
   const triggerPostSubscriptionOnboarding = () => {

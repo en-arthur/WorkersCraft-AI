@@ -30,7 +30,7 @@ export default function OnboardingDemoPage() {
     setTriggeredPostSubscription(false);
     // Simulate subscription success by adding query param
     const url = new URL(window.location.href);
-    url.searchParams.set('trial', 'started');
+    url.searchParams.set('subscription', 'success');
     window.history.pushState({}, '', url.toString());
     // Refresh the page to trigger the effect
     window.location.reload();
@@ -136,8 +136,8 @@ export default function OnboardingDemoPage() {
             <div className="prose prose-sm max-w-none dark:prose-invert">
               <h4>Post-Subscription Trigger</h4>
               <p>
-                The onboarding automatically triggers when a user successfully subscribes or starts a trial. 
-                It detects URL parameters like <code>?trial=started</code> or <code>?subscription=success</code>.
+                The onboarding automatically triggers when a user successfully subscribes.
+                It detects URL parameters like <code>?subscription=success</code>.
               </p>
               
               <h4>Full-Screen Experience</h4>

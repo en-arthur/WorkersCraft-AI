@@ -1020,7 +1020,7 @@ function BillingTab({ returnUrl, onOpenPlanModal, isActive }: { returnUrl: strin
 
     const subscription = accountState?.subscription;
     const subStatus = subscription?.status;
-    const isSubscribed = subStatus === 'active' || subStatus === 'trialing';
+    const isSubscribed = subStatus === 'active';
     const isFreeTier = subscription?.tier_key === 'free' || subscription?.tier_key === 'none';
     const isCancelled = subscription?.is_cancelled || subscription?.cancel_at_period_end;
     const canPurchaseCredits = subscription?.can_purchase_credits || false;

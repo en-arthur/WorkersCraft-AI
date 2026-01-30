@@ -43,7 +43,6 @@ const PUBLIC_ROUTES = [
 
 // Routes that require authentication but are related to billing/trials/setup
 const BILLING_ROUTES = [
-  '/activate-trial',
   '/subscription',
   '/setting-up',
 ];
@@ -258,9 +257,15 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(url);
     }
 
+    const paywallEnabled = process.env.NEXT_PUBLIC_PAYWALL_ENABLED?.toLowerCase() === 'true';
+
     // Skip billing checks in local mode
     const isLocalMode = process.env.NEXT_PUBLIC_ENV_MODE?.toLowerCase() === 'local'
     if (isLocalMode) {
+      return supabaseResponse;
+    }
+
+    if (!paywallEnabled) {
       return supabaseResponse;
     }
 
@@ -283,42 +288,25 @@ export async function middleware(request: NextRequest) {
 
       if (!accounts) {
         const url = request.nextUrl.clone();
-        url.pathname = '/activate-trial';
+        url.pathname = '/subscription';
         return NextResponse.redirect(url);
       }
 
       const accountId = accounts.id;
       const { data: creditAccount } = await supabase
         .from('credit_accounts')
-        .select('tier, trial_status, trial_ends_at')
+        .select('tier')
         .eq('account_id', accountId)
         .single();
-
-      const { data: trialHistory } = await supabase
-        .from('trial_history')
-        .select('id')
-        .eq('account_id', accountId)
-        .single();
-
-      const hasUsedTrial = !!trialHistory;
 
       if (!creditAccount) {
-        if (hasUsedTrial) {
-          const url = request.nextUrl.clone();
-          url.pathname = '/subscription';
-          return NextResponse.redirect(url);
-        } else {
-          const url = request.nextUrl.clone();
-          url.pathname = '/activate-trial';
-          return NextResponse.redirect(url);
-        }
+        const url = request.nextUrl.clone();
+        url.pathname = '/subscription';
+        return NextResponse.redirect(url);
       }
 
       const hasPaidTier = creditAccount.tier && creditAccount.tier !== 'none' && creditAccount.tier !== 'free';
       const hasFreeTier = creditAccount.tier === 'free';
-      const hasActiveTrial = creditAccount.trial_status === 'active';
-      const trialExpired = creditAccount.trial_status === 'expired' || creditAccount.trial_status === 'cancelled';
-      const trialConverted = creditAccount.trial_status === 'converted';
       
       // If user is coming from Stripe checkout with subscription=success, allow access to dashboard
       // The webhook might not have processed yet, but we should still allow them to see the success page
@@ -331,15 +319,9 @@ export async function middleware(request: NextRequest) {
         return supabaseResponse;
       }
 
-      if (!hasPaidTier && !hasFreeTier && !hasActiveTrial && !trialConverted) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/subscription';
-        return NextResponse.redirect(url);
-      } else if ((trialExpired || trialConverted) && !hasPaidTier && !hasFreeTier) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/subscription';
-        return NextResponse.redirect(url);
-      }
+      const url = request.nextUrl.clone();
+      url.pathname = '/subscription';
+      return NextResponse.redirect(url);
     }
 
     return supabaseResponse;

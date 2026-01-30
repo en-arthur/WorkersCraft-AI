@@ -577,10 +577,7 @@ export function ThreadComponent({ projectId, threadId, compact = false, configur
   const sharedSubscription = useSharedSubscription();
   const { data: subscriptionData } = isShared ? { data: undefined } : sharedSubscription;
   const subscriptionStatus: SubscriptionStatus =
-    subscriptionData?.status === 'active' ||
-      subscriptionData?.status === 'trialing'
-      ? 'active'
-      : 'no_subscription';
+    subscriptionData?.status === 'active' ? 'active' : 'no_subscription';
 
   const handleProjectRenamed = useCallback((newName: string) => { }, []);
 

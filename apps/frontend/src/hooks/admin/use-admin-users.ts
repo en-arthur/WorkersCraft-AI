@@ -11,7 +11,6 @@ export interface UserSummary {
   total_used: number;
   subscription_status?: string;
   last_activity?: string;
-  trial_status?: string;
 }
 
 interface PaginationMeta {
@@ -124,7 +123,6 @@ interface SearchResponse {
     created_at: string;
     tier: string;
     credit_balance: number;
-    trial_status?: string;
   }>;
   pagination: PaginationMeta;
 }

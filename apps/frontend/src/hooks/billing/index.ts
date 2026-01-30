@@ -33,11 +33,6 @@ export {
   useUsageHistory,
   useTransactions,
   
-  // Trial
-  useTrialStatus,
-  useStartTrial,
-  useCancelTrial,
-  
   // Selectors for extracting data
   accountStateSelectors,
 } from './use-account-state';

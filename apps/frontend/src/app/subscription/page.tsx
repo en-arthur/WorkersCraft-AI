@@ -51,16 +51,14 @@ export default function SubscriptionRequiredPage() {
       const hasActiveSubscription = subscriptionData.subscription &&
         subscriptionData.subscription.status === 'active' &&
         !(subscriptionData.subscription as any).cancel_at_period_end;
-
-      const hasActiveTrial = subscriptionData.subscription?.is_trial === true;
       
       // ✅ Use tier_key for consistency
       const tierKey = subscriptionData.subscription?.tier_key || subscriptionData.tier?.name;
       const hasValidTier = tierKey && tierKey !== 'none';
       const isFreeTier = tierKey === 'free';
 
-      // Redirect to dashboard if user has valid subscription/trial/free tier
-      if ((hasActiveSubscription && hasValidTier) || (hasActiveTrial && hasValidTier) || isFreeTier) {
+      // Redirect to dashboard if user has valid subscription/free tier
+      if ((hasActiveSubscription && hasValidTier) || isFreeTier) {
         router.push('/dashboard');
       }
     }
@@ -93,10 +91,6 @@ export default function SubscriptionRequiredPage() {
     return <SubscriptionSkeleton />;
   }
 
-  const isTrialExpired = (subscriptionData as any)?.trial_status === 'expired' ||
-    (subscriptionData as any)?.trial_status === 'cancelled' ||
-    (subscriptionData as any)?.trial_status === 'used';
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 py-12 px-4">
       <div className="max-w-6xl mx-auto space-y-8">
@@ -105,7 +99,7 @@ export default function SubscriptionRequiredPage() {
             <div className="flex-1" />
             <div className="text-2xl font-medium flex items-center justify-center gap-2">
               <KortixLogo />
-              <span>{isTrialExpired ? 'Your Trial Has Ended' : 'Subscription Required'}</span>
+              <span>Upgrade</span>
             </div>
             <div className="flex-1 flex justify-end">
               <Button
@@ -120,9 +114,7 @@ export default function SubscriptionRequiredPage() {
             </div>
           </div>
           <p className="text-md text-muted-foreground max-w-2xl mx-auto">
-            {isTrialExpired
-              ? 'Your 7-day free trial has ended. Choose a plan to continue using Kortix AI.'
-              : 'A subscription is required to use Kortix. Choose the plan that works best for you.'}
+            Choose the plan that works best for you.
           </p>
         </div>
         <Suspense fallback={
