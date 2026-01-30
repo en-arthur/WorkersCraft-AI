@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeToggle } from '@/components/home/theme-toggle';
+// import { ThemeToggle } from '@/components/home/theme-toggle';
 import { siteConfig } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 import { X, Menu } from 'lucide-react';
@@ -295,10 +295,12 @@ export function Navbar() {
                     </Link>
                   )}
 
-                  {/* Theme Toggle */}
+                  {/* Theme Toggle (disabled) */}
+                  {/**
                   <div className="flex justify-end">
                     <ThemeToggle />
                   </div>
+                  */}
                 </div>
               </div>
             </motion.div>

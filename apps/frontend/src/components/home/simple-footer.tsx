@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
 import { WorkersCraftLogo } from '@/components/sidebar/kortix-logo';
-import { ThemeToggle } from '@/components/home/theme-toggle';
+// import { ThemeToggle } from '@/components/home/theme-toggle';
 import { useGitHubStars } from '@/hooks/utils';
 
 export function SimpleFooter() {
@@ -42,10 +42,12 @@ export function SimpleFooter() {
               </a>
             </div>
 
-            {/* Theme toggle only (English only, no language switcher) */}
+            {/* Theme toggle only (English only, no language switcher) - disabled */}
+            {/**
             <div className="flex items-center gap-1 pt-2">
               <ThemeToggle variant="compact" />
             </div>
+            */}
           </div>
 
           {/* Link columns from site config */}
