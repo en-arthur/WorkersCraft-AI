@@ -274,54 +274,10 @@ export async function middleware(request: NextRequest) {
       return supabaseResponse;
     }
 
-    // Only check billing for protected routes that require active subscription
-    // NOTE: Middleware is server-side code, so direct Supabase queries are acceptable here
-    // for performance reasons. Only client-side (browser) code should use backend API.
+    // Client-side paywall (Option 1): allow protected routes to render.
+    // The dashboard will open the pricing modal for users without a subscription.
     if (PROTECTED_ROUTES.some(route => pathname.startsWith(route))) {
-      const { data: accounts } = await supabase
-        .schema('basejump')
-        .from('accounts')
-        .select('id')
-        .eq('personal_account', true)
-        .eq('primary_owner_user_id', user.id)
-        .single();
-
-      if (!accounts) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/subscription';
-        return NextResponse.redirect(url);
-      }
-
-      const accountId = accounts.id;
-      const { data: creditAccount } = await supabase
-        .from('credit_accounts')
-        .select('tier')
-        .eq('account_id', accountId)
-        .single();
-
-      if (!creditAccount) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/subscription';
-        return NextResponse.redirect(url);
-      }
-
-      const hasPaidTier = creditAccount.tier && creditAccount.tier !== 'none' && creditAccount.tier !== 'free';
-      const hasFreeTier = creditAccount.tier === 'free';
-      
-      // If user is coming from Stripe checkout with subscription=success, allow access to dashboard
-      // The webhook might not have processed yet, but we should still allow them to see the success page
-      const subscriptionSuccess = request.nextUrl.searchParams.get('subscription') === 'success';
-      if (subscriptionSuccess && pathname === '/dashboard') {
-        return supabaseResponse;
-      }
-      
-      if (hasPaidTier || hasFreeTier) {
-        return supabaseResponse;
-      }
-
-      const url = request.nextUrl.clone();
-      url.pathname = '/subscription';
-      return NextResponse.redirect(url);
+      return supabaseResponse;
     }
 
     return supabaseResponse;

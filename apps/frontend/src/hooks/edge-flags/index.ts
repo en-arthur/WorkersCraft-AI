@@ -58,8 +58,8 @@ export const useSystemStatusQuery = (options?: { enabled?: boolean }) => {
     queryFn: fetchSystemStatus,
     staleTime: 30 * 1000,
     refetchInterval: 60 * 1000,
-    refetchOnWindowFocus: true,
-    refetchOnMount: 'always',
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
     retry: 2,
     placeholderData: {
       maintenanceNotice: { enabled: false },

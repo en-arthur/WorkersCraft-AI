@@ -64,7 +64,12 @@ export function DashboardContent() {
     if (paywallTriggeredRef.current || isAccountStateLoading || !user) return;
     
     const tierKey = accountState?.subscription?.tier_key;
-    const hasNoSubscription = !tierKey || tierKey === 'none' || tierKey === 'free';
+    const subscriptionStatus = accountState?.subscription?.status;
+    const hasNoSubscription =
+      subscriptionStatus === 'no_subscription' ||
+      !tierKey ||
+      tierKey === 'none' ||
+      tierKey === 'free';
     
     if (hasNoSubscription) {
       paywallTriggeredRef.current = true;
