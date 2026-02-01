@@ -166,8 +166,8 @@ export function useAccountStateWithStreaming(isStreaming: boolean = false) {
     gcTime: 1000 * 60 * 15,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    // Slower refresh during streaming - credits update via backend cache invalidation
-    refetchInterval: isStreaming ? 2 * 60 * 1000 : false, // 2 minutes if streaming
+    // Disabled automatic refetch interval - was causing dashboard refresh issues
+    refetchInterval: false,
     refetchIntervalInBackground: false,
   });
 }
