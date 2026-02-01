@@ -7,7 +7,6 @@ import { useIsMobile } from '@/hooks/utils';
 import { useAuth } from '@/components/AuthProvider';
 import { isLocalMode, isStagingMode } from '@/lib/config';
 import { useAccountState, accountStateSelectors, invalidateAccountState } from '@/hooks/billing';
-import { usePricingModalStore } from '@/stores/pricing-modal-store';
 import { toast } from '@/lib/toast';
 import { useSidebar } from '@/components/ui/sidebar';
 import { useWelcomeBannerStore } from '@/stores/welcome-banner-store';
@@ -54,33 +53,6 @@ export function DashboardContent() {
   
   const { data: accountState, isLoading: isAccountStateLoading } = useAccountState({ enabled: !!user });
   const planName = accountStateSelectors.planName(accountState);
-  const { openPricingModal } = usePricingModalStore();
-
-  // Paywall gate: Show pricing modal if user has no subscription
-  const paywallTriggeredRef = React.useRef(false);
-  
-  React.useEffect(() => {
-    // Don't trigger if already triggered, still loading, or no user
-    if (paywallTriggeredRef.current || isAccountStateLoading || !user) return;
-    
-    const tierKey = accountState?.subscription?.tier_key;
-    const subscriptionStatus = accountState?.subscription?.status;
-    const hasNoSubscription =
-      subscriptionStatus === 'no_subscription' ||
-      !tierKey ||
-      tierKey === 'none' ||
-      tierKey === 'free';
-    
-    if (hasNoSubscription) {
-      paywallTriggeredRef.current = true;
-      openPricingModal({
-        title: "Choose your plan to get started",
-        isAlert: true,
-        alertTitle: "Welcome to WorkersCraft AI",
-        alertSubtitle: "Select a plan to unlock all features"
-      });
-    }
-  }, [accountState, isAccountStateLoading, user, openPricingModal]);
 
   // Handle tab changes from URL
   React.useEffect(() => {

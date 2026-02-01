@@ -99,13 +99,12 @@ export function useOptimisticAgentStart(
         ? 'Upgrade your plan to get more credits and continue using the AI assistant.'
         : undefined;
     
-    router.replace(redirectOnError);
     pricingModalStore.openPricingModal({ 
       isAlert: true,
       alertTitle,
       alertSubtitle
     });
-  }, [router, redirectOnError, pricingModalStore]);
+  }, [pricingModalStore]);
 
   const handleAgentRunLimitError = useCallback((error: AgentRunLimitError) => {
     console.log('[OptimisticAgentStart] Caught AgentRunLimitError');
@@ -115,24 +114,21 @@ export function useOptimisticAgentStart(
       runningThreadIds: running_thread_ids,
     });
     setShowAgentLimitBanner(true);
-    router.replace(redirectOnError);
-  }, [router, redirectOnError]);
+  }, []);
 
   const handleProjectLimitError = useCallback((error: ProjectLimitError) => {
-    router.replace(redirectOnError);
     pricingModalStore.openPricingModal({ 
       isAlert: true,
       alertTitle: `${tBilling('reachedLimit')} ${tBilling('projectLimit', { current: error.detail.current_count, limit: error.detail.limit })}` 
     });
-  }, [router, redirectOnError, pricingModalStore, tBilling]);
+  }, [pricingModalStore, tBilling]);
 
   const handleThreadLimitError = useCallback((error: ThreadLimitError) => {
-    router.replace(redirectOnError);
     pricingModalStore.openPricingModal({ 
       isAlert: true,
       alertTitle: `${tBilling('reachedLimit')} ${tBilling('threadLimit', { current: error.detail.current_count, limit: error.detail.limit })}` 
     });
-  }, [router, redirectOnError, pricingModalStore, tBilling]);
+  }, [pricingModalStore, tBilling]);
 
   const startAgent = useCallback(async (
     options: OptimisticAgentStartOptions
@@ -240,7 +236,6 @@ export function useOptimisticAgentStart(
             runningThreadIds: running_thread_ids,
           });
           setShowAgentLimitBanner(true);
-          router.replace(redirectOnError);
           return;
         }
         

@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useParams } from 'next/navigation';
-import { Suspense, lazy } from 'react';
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
+import { useParams, usePathname } from 'next/navigation';
 import { useAccounts } from '@/hooks/account';
 import { useAuth } from '@/components/AuthProvider';
 import { useSystemStatusQuery } from '@/hooks/edge-flags';
@@ -11,6 +10,8 @@ import { useApiHealth } from '@/hooks/usage/use-health';
 import { useAdminRole } from '@/hooks/admin';
 import { usePresence } from '@/hooks/use-presence';
 import { featureFlags } from '@/lib/feature-flags';
+import { useAccountState } from '@/hooks/billing';
+import { usePricingModalStore } from '@/stores/pricing-modal-store';
 
 import { useProjects } from '@/hooks/sidebar/use-sidebar';
 import { useIsMobile } from '@/hooks/utils';
@@ -97,6 +98,7 @@ export default function DashboardLayoutContent({
   const { user, isLoading } = useAuth();
   const params = useParams();
   const threadId = params?.threadId as string | undefined;
+  const pathname = usePathname();
   
   usePresence(threadId);
   
@@ -113,6 +115,37 @@ export default function DashboardLayoutContent({
     isLoading: isCheckingHealth,
     error: healthError,
   } = useApiHealth();
+
+  const { data: accountState, isLoading: isAccountStateLoading } = useAccountState({ enabled: !!user });
+  const { openPricingModal } = usePricingModalStore();
+
+  const paywallTriggeredRef = useRef(false);
+  useEffect(() => {
+    if (paywallTriggeredRef.current || isAccountStateLoading || !user) return;
+
+    const tierKey = accountState?.subscription?.tier_key;
+    const subscriptionStatus = accountState?.subscription?.status;
+    const hasNoSubscription =
+      subscriptionStatus === 'no_subscription' ||
+      !tierKey ||
+      tierKey === 'none' ||
+      tierKey === 'free';
+
+    if (hasNoSubscription) {
+      paywallTriggeredRef.current = true;
+      const returnUrl = typeof window !== 'undefined'
+        ? `${window.location.pathname}${window.location.search}`
+        : pathname;
+
+      openPricingModal({
+        title: 'Choose your plan to get started',
+        isAlert: true,
+        alertTitle: 'Welcome to WorkersCraft AI',
+        alertSubtitle: 'Select a plan to unlock all features',
+        returnUrl,
+      });
+    }
+  }, [accountState, isAccountStateLoading, openPricingModal, pathname, user]);
 
   const { data: projects } = useProjects();
   const { data: adminRoleData, isLoading: isCheckingAdminRole } = useAdminRole();
@@ -131,6 +164,24 @@ export default function DashboardLayoutContent({
 
   // API health is now managed by useApiHealth hook
   const isApiHealthy = healthData?.status === 'ok' && !healthError;
+
+  const [shouldShowHealthMaintenance, setShouldShowHealthMaintenance] = useState(false);
+  const healthFailureCountRef = useRef(0);
+  useEffect(() => {
+    if (isCheckingHealth) return;
+
+    const healthyNow = healthData?.status === 'ok' && !healthError;
+    if (healthyNow) {
+      healthFailureCountRef.current = 0;
+      if (shouldShowHealthMaintenance) setShouldShowHealthMaintenance(false);
+      return;
+    }
+
+    healthFailureCountRef.current += 1;
+    if (healthFailureCountRef.current >= 2 && !shouldShowHealthMaintenance) {
+      setShouldShowHealthMaintenance(true);
+    }
+  }, [healthData?.status, healthError, isCheckingHealth, shouldShowHealthMaintenance]);
 
   // Check authentication status
   useEffect(() => {
@@ -176,7 +227,7 @@ export default function DashboardLayoutContent({
   }
 
   // Show maintenance page if API is not healthy
-  if (!isCheckingHealth && !isCheckingAdminRole && (!isApiHealthy || healthError) && !isAdmin) {
+  if (!isCheckingHealth && !isCheckingAdminRole && shouldShowHealthMaintenance && (!isApiHealthy || healthError) && !isAdmin) {
     return (
       <Suspense fallback={<DashboardSkeleton />}>
         <MaintenancePage />

@@ -53,7 +53,6 @@ function PasswordAuthContent() {
       // If no error, redirect manually (fallback in case server redirect didn't work)
       const finalReturnUrl = returnUrl || '/dashboard';
       router.push(finalReturnUrl);
-      router.refresh();
     } catch (error: any) {
       // Next.js redirect() throws a special error - this is expected on success
       if (error?.digest?.startsWith('NEXT_REDIRECT')) {

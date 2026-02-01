@@ -33,9 +33,6 @@ export const pricingTiers: PricingTier[] = [
   {
     name: 'Plus',
     price: '$30',
-    yearlyPrice: '$306',
-    originalYearlyPrice: '$360',
-    discountPercentage: 15,
     description: 'Best for individuals and small teams',
     buttonText: 'Get started',
     buttonColor: 'bg-primary text-white dark:text-black',
@@ -59,9 +56,6 @@ export const pricingTiers: PricingTier[] = [
   {
     name: 'Pro',
     price: '$50',
-    yearlyPrice: '$510',
-    originalYearlyPrice: '$600',
-    discountPercentage: 15,
     description: 'Ideal for growing businesses',
     buttonText: 'Get started',
     buttonColor: 'bg-secondary text-white',
@@ -85,9 +79,6 @@ export const pricingTiers: PricingTier[] = [
   {
     name: 'Business',
     price: '$200',
-    yearlyPrice: '$2040',
-    originalYearlyPrice: '$2400',
-    discountPercentage: 15,
     description: 'For established businesses',
     buttonText: 'Get started',
     buttonColor: 'bg-secondary text-white',

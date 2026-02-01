@@ -18,9 +18,7 @@ export function MaintenancePage() {
   const checkHealth = async () => {
     try {
       const result = await refetch();
-      if (result.data) {
-        window.location.reload();
-      }
+      void result;
     } catch (error) {
       console.error('API health check failed:', error);
     } finally {
